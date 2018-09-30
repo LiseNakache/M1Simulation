@@ -1,0 +1,17 @@
+{% extends "@miageSimulationAdmin/layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Index{% endblock %}
+
+{% block body %}
+    <h1>Voici la page de l'admin</h1><br>
+    <h3>Formulaire modification de la filière</h3>
+
+    <div class="well">
+        {{ form(form) }}
+        <a class="btn btn-default" href="{{ path('miage_simulation_admin_homepage') }}">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Retour
+        </a>
+    </div>
+
+{% endblock %}

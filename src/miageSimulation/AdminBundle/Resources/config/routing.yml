@@ -1,0 +1,44 @@
+miage_simulation_admin_homepage:
+    path:     /admin
+    defaults: { _controller: miageSimulationAdminBundle:Admin:index }
+
+#miage_simulation_admin_view:
+#    path:      /admin/courses
+#    defaults: { _controller: miageSimulationAdminBundle:Admin:view }
+
+#oc_platform_view:
+#    path:      /platform/advert/{id}
+#    defaults: { _controller: OCPlatformBundle:Advert:view }
+#
+miage_simulation_admin_addCourse:
+    path:      /admin/addCourse
+    defaults: { _controller: miageSimulationAdminBundle:Admin:addCourse }
+
+miage_simulation_admin_editCourse:
+    path:      /admin/editCourse/{id}
+    defaults: { _controller: miageSimulationAdminBundle:Admin:editCourse }
+    requirements:
+        id: \d+
+
+miage_simulation_admin_deleteCourse:
+    path:      /admin/deleteCourse/{id}
+    defaults: { _controller: miageSimulationAdminBundle:Admin:deleteCourse }
+    requirements:
+        id: \d+
+
+
+miage_simulation_admin_addSubject:
+    path:      /admin/addSubject
+    defaults: { _controller: miageSimulationAdminBundle:Admin:addSubject }
+
+miage_simulation_admin_editSubject:
+    path:      /admin/editSubject/{id}
+    defaults: { _controller: miageSimulationAdminBundle:Admin:editSubject }
+    requirements:
+        id: \d+
+
+miage_simulation_admin_deleteSubject:
+    path:      /admin/deleteSubject/{id}
+    defaults: { _controller: miageSimulationAdminBundle:Admin:deleteSubject }
+    requirements:
+        id: \d+

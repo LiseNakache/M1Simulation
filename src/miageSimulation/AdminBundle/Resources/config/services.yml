@@ -1,0 +1,4 @@
+services:
+#    miage_simulation_admin.example:
+#        class: miageSimulation\AdminBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

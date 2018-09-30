@@ -1,0 +1,126 @@
+{% extends "@miageSimulationAdmin/layout.html.twig" %}
+{#"@miageSimulationAdmin/Admin/index.html.twig"#}
+{% block title %}{{ parent() }} - Index{% endblock %}
+
+{% block body_forum %}
+<div class="container">
+    <h1>index.html.twig
+        Voici la page de l'admin</h1><br>
+    <h2>Filière
+        <a class="btn btn-default" href="{{ path('miage_simulation_admin_addCourse') }}">
+            <i class="glyphicon glyphicon-plus"></i>
+            Ajouter
+        </a>
+    </h2>
+    {#<button>Ajouter</button>#}
+
+
+
+    {#<a href="{{ path('delete_route_name', {'id': entity.id }) }}">Delete</a>#}
+    <div class="row">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            {#<th>ID</th>#}
+            <th>TYPE</th>
+            <th>FILIERE</th>
+            <th>ANNEE SCOLAIRE</th>
+            <th>MATIERES</th>
+            <th>COEFFICIENT TOTAL</th>
+            <th>NOMBRE DE MATIERE</th>
+        </tr>
+        </thead>
+    {#</table>#}
+
+        <tbody>
+        {% for course in courseslist %}
+            <tr>
+                {#<td>{{ course.id }}</td>#}
+                <td>{{ course.type }}</td>
+                <td>{{ course.name }}</td>
+                <td>{{ course.yearStart|date('Y') }}-{{ course.yearEnd|date('Y') }}</td>
+
+                <td>
+
+                    <table>
+                    {% for subject in course.subjects %}
+                        <tr>
+                            {% if course.subjects is empty %}
+                                <td>Vide</td>
+                            {% else %}
+                                <td>{{ subject.name }}{% if not loop.last %}, {% endif %}</td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                    </table>
+                </td>
+                <td>{{ course.totalCoef }}</td>
+                <td>{{ course.totalSubjects }}</td>
+                <td>
+                    <a class="btn btn-default" href="{{ path('miage_simulation_admin_editCourse', {'id': course.id}) }}">
+                        <i class="glyphicon glyphicon-edit"></i>
+                        Modifier
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-default" href="{{ path('miage_simulation_admin_deleteCourse', {'id': course.id}) }}">
+                        <i class="glyphicon glyphicon-remove"></i>
+                        Supprimer
+                    </a>
+                </td>
+                {#for the students name#}
+                {#{% for a in m.alimento %}#}
+                    {#<td>{{ a.nombre }}</td>#}
+                {#{% endfor %}#}
+                {#<td>{{ subject.date|date('d/m/Y') }}</td>#}
+            </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+    </div>
+
+
+    <h2>Matières
+        <a class="btn btn-default" href="{{ path('miage_simulation_admin_addSubject') }}">
+            <i class="glyphicon glyphicon-plus"></i>
+            Ajouter
+        </a>
+    </h2>
+
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    {#<th>ID</th>#}
+                    <th>MATIERE</th>
+                    <th>COEFFICIENT</th>
+                    <th>PROFESSEUR</th>
+                </tr>
+            </thead>
+        <tbody>
+    {% for subject in subjectslist %}
+            <tr>
+                {#<td>{{ subject.id }}</td>#}
+                <td>{{ subject.name }}</td>
+                <td>{{ subject.coef }}</td>
+                <td>{{ subject.teacherName }}</td>
+                <td>
+                    <a class="btn btn-default" href="{{ path('miage_simulation_admin_editSubject', {'id': subject.id}) }}">
+                        <i class="glyphicon glyphicon-edit"></i>
+                        Modifier
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-default" href="{{ path('miage_simulation_admin_deleteSubject', {'id': subject.id}) }}">
+                        <i class="glyphicon glyphicon-remove"></i>
+                        Supprimer
+                    </a>
+                </td>
+            </tr>
+    {% endfor %}
+        </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
